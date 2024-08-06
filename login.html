@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phantom Network Login</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+20+Charted&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: 'Passion One', cursive, Arial, sans-serif;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            border-bottom: 1px solid white;
+        }
+        .header .title {
+            font-size: 2.5em;
+            font-family: 'Jersey 20 Charted', cursive;
+            color: white;
+            text-shadow: 0 0 10px white;
+        }
+        .header .nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin-right: 20px;
+        }
+        .header .nav-buttons button {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            text-shadow: 0 0 10px white;
+        }
+        .header .nav-buttons button:hover {
+            background-color: white;
+            color: black;
+        }
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 40px;
+            border: 1px solid white;
+            box-shadow: 0 0 10px white;
+            text-align: center;
+        }
+        .login-container h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px white;
+        }
+        .login-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid white;
+            background-color: black;
+            color: white;
+            font-size: 1em;
+            text-shadow: 0 0 10px white;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            cursor: pointer;
+            font-size: 1em;
+            text-shadow: 0 0 10px white;
+        }
+        .login-container button:hover {
+            background-color: white;
+            color: black;
+        }
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            z-index: 1;
+            user-select: none;
+            cursor: default;
+            color: white;
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="title">Phantom Network</div>
+    <div class="nav-buttons">
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='attacks.html'">Attacks</button>
+        <button onclick="window.location.href='login.html'">Login</button>
+    </div>
+</div>
+
+<div class="login-container">
+    <h1>Login</h1>
+    <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<div class="snow" id="snow"></div>
+
+<script>
+    // Snowfall script
+    document.addEventListener('DOMContentLoaded', function() {
+        let snowContainer = document.getElementById('snow');
+        let numFlakes = 100;
+        for (let i = 0; i < numFlakes; i++) {
+            let flake = document.createElement('div');
+            flake.className = 'snowflake';
+            flake.style.left = Math.random() * 100 + '%';
+            flake.style.animationDuration = (Math.random() * 10 + 5) + 's';
+            flake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            flake.innerHTML = '&#10052;';
+            snowContainer.appendChild(flake);
+        }
+    });
+
+    // Login logic
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        // Hardcoded credentials
+        const validUsername = 'phantom';
+        const validPassword = 'HASH33u8%&#^&*&&&^&*#&ghygyg7';
+
+        if (username === validUsername && password === validPassword) {
+            window.location.href = 'adminidys72647643276y74yf743tfgy4gg.html';
+        } else {
+            alert('Invalid username or password.');
+        }
+    });
+</script>
+
+</body>
+</html>

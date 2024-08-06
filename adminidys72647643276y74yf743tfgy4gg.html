@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Logs</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            padding: 20px;
+        }
+        .header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-bottom: 1px solid white;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        .logs-container {
+            margin-top: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+            background-color: #333;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        .log-entry {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #444;
+        }
+        .log-entry:last-child {
+            border-bottom: none;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    Admin - Website Logs
+</div>
+
+<div class="logs-container" id="logs-container">
+    <!-- Logs will be dynamically inserted here -->
+</div>
+
+<div class="footer">
+    
+</div>
+
+<script>
+    // Function to generate random log entries
+    function generateRandomLog() {
+        const logTypes = ['INFO', 'ERROR', 'WARNING'];
+        const messages = [
+            'User login successful.',
+            'Failed login attempt.',
+            'New user registration.',
+            'Page not found error.',
+            'Database connection established.',
+            'Server overload detected.',
+            'User profile updated.',
+            'Security breach detected.'
+        ];
+
+        const type = logTypes[Math.floor(Math.random() * logTypes.length)];
+        const message = messages[Math.floor(Math.random() * messages.length)];
+        const timestamp = new Date().toISOString();
+
+        return `[${timestamp}] ${type}: ${message}`;
+    }
+
+    // Function to update logs every few seconds
+    function updateLogs() {
+        const logsContainer = document.getElementById('logs-container');
+
+        // Generate and display 5 random log entries
+        for (let i = 0; i < 5; i++) {
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.textContent = generateRandomLog();
+            logsContainer.appendChild(logEntry);
+        }
+    }
+
+    // Initial log display
+    updateLogs();
+
+    // Update logs every 10 seconds
+    setInterval(updateLogs, 10000);
+</script>
+
+</body>
+</html>

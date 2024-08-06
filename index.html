@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phantom Network</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Jersey+20+Charted&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Passion+One&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            font-family: 'Passion One', cursive, Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        .header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            border-bottom: 1px solid white;
+        }
+        .header .title {
+            font-size: 2.5em;
+            font-family: 'Jersey 20 Charted', cursive;
+            color: white;
+            text-shadow: 0 0 10px white;
+        }
+        .header .nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin-right: 20px;
+        }
+        .header .nav-buttons button {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            text-shadow: 0 0 10px white;
+        }
+        .header .nav-buttons button:hover {
+            background-color: white;
+            color: black;
+        }
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding-top: 100px; /* Offset for the fixed header */
+            text-align: center;
+        }
+        .main-content h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px white;
+        }
+        .pred-catch {
+            border: 1px solid white;
+            padding: 20px;
+            margin: 10px;
+            width: 300px;
+            text-align: left;
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 10px white;
+        }
+        .pred-catch img {
+            max-width: 100%;
+            margin-bottom: 10px;
+            border: 1px solid white;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 10px;
+            border-top: 1px solid white;
+        }
+        .footer button {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1em;
+            text-shadow: 0 0 10px white;
+        }
+        .footer button:hover {
+            background-color: white;
+            color: black;
+        }
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            z-index: 1;
+            user-select: none;
+            cursor: default;
+            color: white;
+            font-size: 1em;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="title">Phantom Network</div>
+    <div class="nav-buttons">
+        <button onclick="window.location.href='index.html'">Home</button>
+        <button onclick="window.location.href='attacks.html'">Attacks</button>
+        <button onclick="window.location.href='founders.html'">Founders</button>
+        <button onclick="window.location.href='login.html'">Login</button>
+    </div>
+</div>
+
+<div class="main-content">
+    <h1>Recent Pred Catches</h1>
+    <div class="pred-catch">
+        <img src="https://cdn.discordapp.com/avatars/998685332373516338/8af1e5d2e65c3680e97a23836c0e130e.webp?size=60" alt="Predator Image 1">
+        <p>Name: ? </p>
+        <p>Age: 34</p>
+        <p>Phone Number: +1 435 841 0765</p>
+        <p>Address: 717 N 410 W Tooele, Utah 84074 City: Salt Lake City</p>
+    </div>
+
+    <!-- Add more pred-catch divs as needed -->
+</div>
+
+<div class="footer">
+    <button onclick="window.location.href='https://discord.gg/Vj7kYtc9hV'">Join Our Discord Server</button>
+</div>
+
+<div class="snow" id="snow"></div>
+
+<audio id="background-music" src="https://r2.guns.lol/0a3e43e7-d580-42a6-b904-dc45e5003940.mp3" autoplay loop></audio>
+
+<script>
+    // Snowfall script
+    document.addEventListener('DOMContentLoaded', function() {
+        let snowContainer = document.getElementById('snow');
+        let numFlakes = 100;
+        for (let i = 0; i < numFlakes; i++) {
+            let flake = document.createElement('div');
+            flake.className = 'snowflake';
+            flake.style.left = Math.random() * 100 + '%';
+            flake.style.animationDuration = (Math.random() * 10 + 5) + 's';
+            flake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+            flake.innerHTML = '&#10052;';
+            snowContainer.appendChild(flake);
+        }
+    });
+
+    // Ensure audio starts
+    document.addEventListener('click', function() {
+        const audio = document.getElementById('background-music');
+        if (audio) {
+            audio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

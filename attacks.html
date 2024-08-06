@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phantom Network - Recent Attacks</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: white;
+            padding: 0;
+            overflow: hidden;
+        }
+        .header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-bottom: 2px solid white;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .attack-container {
+            margin: 30px auto;
+            max-width: 1200px;
+            padding: 0 20px;
+        }
+        .attack {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .attack:hover {
+            background-color: #333;
+            transform: scale(1.02);
+        }
+        .attack h2 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+            color: #1E90FF;
+        }
+        .attack p {
+            margin: 5px 0;
+            font-size: 1.1em;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            text-align: center;
+            padding: 15px;
+            border-top: 2px solid white;
+        }
+        .footer button {
+            background-color: black;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 5px;
+            text-shadow: 0 0 5px white;
+        }
+        .footer button:hover {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    Phantom Network - Recent Attacks
+</div>
+
+<div class="attack-container" id="attack-container">
+    <!-- Attack entries will be dynamically inserted here -->
+</div>
+
+<div class="footer">
+    <button onclick="window.location.href='https://discord.gg/Vj7kYtc9hV'">Join Our Discord Server</button>
+</div>
+
+<audio id="background-audio" src="https://r2.guns.lol/0a3e43e7-d580-42a6-b904-dc45e5003940.mp3" autoplay loop></audio>
+
+<script>
+    // Specific attack targets
+    const specificAttacks = [
+        {
+            type: 'DDoS Attack',
+            location: 'epicgames.com',
+            timestamp: new Date().toISOString()
+        },
+        {
+            type: 'SQL Injection',
+            location: 'thesatanictemple.com',
+            timestamp: new Date().toISOString()
+        },
+        {
+            type: 'Phishing',
+            location: 'discord.com',
+            timestamp: new Date().toISOString()
+        }
+    ];
+
+    // Function to display attacks
+    function displayAttacks() {
+        const attackContainer = document.getElementById('attack-container');
+        attackContainer.innerHTML = ''; // Clear previous content
+
+        // Display each specific attack entry
+        specificAttacks.forEach(attack => {
+            const attackDiv = document.createElement('div');
+            attackDiv.className = 'attack';
+            attackDiv.innerHTML = `
+                <h2>Attack Type: ${attack.type}</h2>
+                <p>Date: ${attack.timestamp}</p>
+                <p>Target: ${attack.location}</p>
+            `;
+            attackContainer.appendChild(attackDiv);
+        });
+    }
+
+    // Initial attack display
+    displayAttacks();
+
+    // Optionally, you can add a periodic refresh if needed
+    // setInterval(displayAttacks, 30000);
+</script>
+
+</body>
+</html>
